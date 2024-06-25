@@ -28,22 +28,22 @@ gpg --full-generate-key
 # 名前(N)、コメント(C)、電子メール(E)の変更、またはOK(O)か終了(Q)?
 # O
 
-# パスワード入力のダイアログが入力されるのでパスフレーズを入力。
+# パスワード入力のpinentry-mac ダイアログが入力されるのでパスフレーズを入力。
 
+# 上記完了後、下記コマンドを実行すれば鍵のリストに追加されていることが確認できます。
 gpg --list-secret-keys --keyid-format LONG
+# ここで、 sec  rsa4096/ のあとに表示された文字列をコピー。
 
-# 
-# ここで、 sec  rsa4096/ のあとに表示された文字列をコピー
-# $KEYID
-
+# $KEYIDは先ほどコピーした文字列をペースト
 git config --global user.signingkey $KEYID
 git config --global commit.gpgsign true
 
 # 公開鍵発行
-
 gpg --armor --export $KEYID >> ~/gpg.key
-
+ 
 ```
+
+ここまで完了したら、GitHubの設定画面で公開鍵を登録します。
 
 ### gpg.keyの内容をGitHubに登録
 
@@ -61,8 +61,11 @@ gpg --armor --export $KEYID >> ~/gpg.key
 ### 実際にcommitし、pushしてみる
 
 GitHubでcommitし、pushする。
-Commitsを確認すると緑色のVerifiedラベルが表示され、署名つきcommitになっていることがわかります。
+先ほど設定したパスフレーズの入力が求められた場合は入力します。
+Commitsを確認するとpushされたcommitの横に緑色のVerifiedラベルが表示されており、
+そのcommitが署名つきcommitになっていることがわかります。
 
 ### 公開鍵について
 
-なお、実際にその署名が自分自身によって行われたものであることを証明する簡単で確実度の高い方法は、**直接の手渡し** です。
+なお、実際にその署名が本人のものかどうか証明する簡単かつほぼ唯一確実度の高い方法は、
+本人が **手渡しなどで直接伝達する** ことです。
