@@ -4,9 +4,9 @@
 
 ## JPEG/PNG -> WebP
 
-2024年現在、ほとんどのケースでJPEGやPNGはWebPに代替可能です。
+2024年現在、ほとんどのケースでJPEGやPNGはWebPに代替可能。WebPは透過色にも対応しており、透過PNGもそのまま圧縮変換する事ができます。
 
-MacOSの場合、cwebpを使用するためにwebpをインストールします。
+MacOSの場合、cwebpを使用するためにwebpをインストール。
 
 ```zsh
 brew install webp
@@ -18,8 +18,7 @@ brew install webp
 cwebp in.jpg -o out.webp
 ```
 
-下記コマンドで現在のディレクトリ以下の `*.jpg` `*.jpeg` を、
-すべて `*.webp` に変換する。
+下記コマンドで現在のディレクトリ以下の `*.jpg` `*.jpeg` を、すべて `*.webp` に変換します。
 
 **※変換前の `*.jpg` `*.jpeg` は削除されます。**
 
@@ -27,7 +26,7 @@ cwebp in.jpg -o out.webp
 for f in $(find . -type f \( -iname \*.jpg -o -iname \*.jpeg \)); do o=$(basename $f | sed -e "s/\.jpg//g" -e "s/\.jpeg//g");cwebp $f -o ${o}.webp;rm $f;done
 ```
 
-`*.png` -> `*.webp` は次の通りです。
+`*.png` -> `*.webp` は次の通り。
 
 **※変換前の `*.png` は削除されます。**
 
@@ -47,8 +46,7 @@ for f in $(find . -type f \( -iname \*.jpg -o -iname \*.jpeg -o -iname \*.png \)
 
 ## JPEG -> 最適化JPEG
 
-JPEGも、見た目の画質を維持したまま、ある程度の軽量化が可能です。
-mozjpegを利用すれば、JPEGもそれなりに圧縮が可能です。
+WebP画像が表示できない古いブラウザでも確実に表示したい場合、mozjpegを利用すれば、JPEGでもそれなりにファイルサイズの圧縮が可能です。
 
 ### インストール
 

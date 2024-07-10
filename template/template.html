@@ -1,23 +1,29 @@
+<!-- CC0 -->
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${pagetitle}</title>
-  <meta property="og:title" content="${pagetitle}">
-  <link rel="stylesheet" href="">
-  <script src=""></script>
+  <title>${page_title}</title>
+  <meta property="og:title" content="${page_title}">
+  <meta property="og:site_name" content="${meta_sitename}">
+  <meta property="og:image" content="${ogp_image}">
+  <meta property="og:description" content="${meta_description}">
+  <meta name="description" content="${meta_description}">
+  <link rel="stylesheet" href="template-css/template.css">
+  <script src="template.js" defer></script>
 </head>
 <body>
 <div class="wrapper">
-  <header>
+  <header class="header">
   </header>
-  <main>
-    <h1>${pagetitle}</h1>
+  <main class="main">
+    <section class="section-first">
+      <h1>${page_title}</h1>
+    </section>
   </main>
-  <footer>
+  <footer class="footer">
   </footer>
 </div>
 </body>
 </html>
-<!-- CC0 -->
