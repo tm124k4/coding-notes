@@ -9,6 +9,7 @@
 - lottie
   - Webアニメーションのライブラリ。
 - swiper.js
+  - https://github.com/nolimits4web/swiper
   - スライド要素のライブラリ。
 - three.js
   - 3Dコンテンツを制作するためのライブラリ。
